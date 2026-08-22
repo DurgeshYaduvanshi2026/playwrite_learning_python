@@ -1,3 +1,3 @@
 testName,email,password,expected
-Valid login,pavanol@abc.com,test@123,success
+Valid login,automationtesting88@gmail.com,demo@1234,success
 Invalid login,abcxyz@xyz.com,abcxyx,failure
