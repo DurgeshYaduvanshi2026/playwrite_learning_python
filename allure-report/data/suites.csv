@@ -1,0 +1,21 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+End-to-End Test Flow:
+1. Register a new user.
+2. Logout.
+3. Login with the registered credentials.
+4. Search and add a product to cart.
+5. Verify cart contents.
+","5798","test_end_to_end_flow","tests","2026-08-22","broken","2026-08-22","","test_end_to_end","",""
+"
+Automated Test Case: Verify that a logged-in user can successfully log out of the application.
+","4953","test_user_logout","tests","2026-08-22","passed","2026-08-22","","test_user_logout","",""
+"","5921","test_login_data_driven[Valid login-automationtesting88@gmail.com-demo@1234-success]","tests","2026-08-22","passed","2026-08-22","","test_login_data_driven","",""
+"","3716","test_user_registration","tests","2026-08-22","passed","2026-08-22","","test_user_registration","",""
+"","5853","test_valid_user_login","tests","2026-08-22","passed","2026-08-22","","test_login","",""
+"","5566","test_login_data_driven[Invalid login-abcxyz@xyz.com-abcxyx-failure]","tests","2026-08-22","passed","2026-08-22","","test_login_data_driven","",""
+"","5836","test_invalid_user_login","tests","2026-08-22","passed","2026-08-22","","test_login","",""
+"","2105","test_product_search","tests","2026-08-22","passed","2026-08-22","","test_product_search","",""
+"
+Automated Test Case: Verify user can search and add a product to the cart.
+","5365","test_add_product_to_cart","tests","2026-08-22","failed","2026-08-22","","test_add_product_to_cart","",""

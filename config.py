@@ -1,8 +1,8 @@
 class Config:
-    email = "pavanol@abc.com"
-    password = "test@123"
+    email = "automationtesting88@gmail.com"
+    password = "demo@1234"
 
-    invalid_email = "pavanol123@abc.com"
+    invalid_email = "automationtesting88@gmail.com"
     invalid_password = "test@123xyz"
 
     product_name = "iPhone"
