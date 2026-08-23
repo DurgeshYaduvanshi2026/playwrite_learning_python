@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"buildName":"playwrite python local project #6","buildOrder":"6","reportName":"AllureReport","name":"Jenkins","buildUrl":"http://localhost:8080/job/playwrite%20python%20local%20project/6/display/redirect","reportUrl":"http://localhost:8080/job/playwrite%20python%20local%20project/6/allure","type":"jenkins","url":"http://localhost:8080/"}
+=======
+{"buildName":"playwrite python local project #4","buildOrder":"4","reportName":"AllureReport","name":"Jenkins","buildUrl":"http://localhost:8080/job/playwrite%20python%20local%20project/4/display/redirect","reportUrl":"http://localhost:8080/job/playwrite%20python%20local%20project/4/allure","type":"jenkins","url":"http://localhost:8080/"}
+>>>>>>> 4b574c7536c752f93bbcd07d04f2456fd4031706
