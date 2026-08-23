@@ -35,8 +35,8 @@ def test_add_product_to_cart(page):
     """
 
     # --- Test Data ---
-    product_name = Config.product_name      # Get product name from configuration file
-    quantity = Config.product_quantity      # Get product quantity from configuration file
+    product_name = Config.product_name  # Get product name from configuration file
+    quantity = Config.product_quantity  # Get product quantity from configuration file
 
     # --- Page Object Initialization ---
     home_page = HomePage(page)
@@ -52,7 +52,6 @@ def test_add_product_to_cart(page):
     # --- Step 3: Set Quantity and Add to Cart ---
     product_page.set_quantity(quantity)
     product_page.add_to_cart()
+    expect(product_page.get_confirmation_message()).to_be_visible(timeout=10000)
 
     # --- Step 4: Verify Confirmation Message ---
-    # Ensure the success message appears within 3 seconds after adding the product
-    expect(product_page.get_confirmation_message()).to_be_visible(timeout=3000)

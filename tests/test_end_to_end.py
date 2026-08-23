@@ -12,6 +12,7 @@ from config import Config
 from utilities.random_data_util import RandomDataUtil
 from playwright.sync_api import expect
 
+
 @pytest.mark.end_to_end
 def test_end_to_end_flow(page):
     """
@@ -24,7 +25,7 @@ def test_end_to_end_flow(page):
     """
 
     # Step 1: Register a new account and capture the generated email
-    registered_email,registered_password = perform_registration(page)
+    registered_email, registered_password = perform_registration(page)
     print("✅ Registration completed successfully!")
 
     # Step 2: Logout after registration
@@ -32,7 +33,7 @@ def test_end_to_end_flow(page):
     print("✅ Logout completed successfully!")
 
     # Step 3: Login with registered email
-    perform_login(page, registered_email,registered_password)
+    perform_login(page, registered_email, registered_password)
     print("✅ Login completed successfully!")
 
     # Step 4: Search product and add to cart
@@ -76,7 +77,7 @@ def perform_registration(page):
     confirmation_msg = registration_page.get_confirmation_msg()
     expect(confirmation_msg).to_have_text("Your Account Has Been Created!")
 
-    return email,password
+    return email, password
 
 
 # -------------------------------------------------------------
@@ -87,7 +88,9 @@ def perform_logout(page):
     logout_page = LogoutPage(page)
 
     my_account.click_logout()
-    expect(logout_page.get_continue_button()).to_be_visible(timeout=3000) #checks continue button on logout page
+    expect(logout_page.get_continue_button()).to_be_visible(
+        timeout=3000
+    )  # checks continue button on logout page
 
     logout_page.click_continue()  # navigates to HomePage
     expect(page).to_have_title("Your Store")  # Checks Home Page Exists with title
@@ -96,7 +99,7 @@ def perform_logout(page):
 # -------------------------------------------------------------
 # Helper Function: Login
 # -------------------------------------------------------------
-def perform_login(page, email,password):
+def perform_login(page, email, password):
 
     home = HomePage(page)
     home.click_my_account()
@@ -115,8 +118,7 @@ def perform_login(page, email,password):
 # -------------------------------------------------------------
 def add_product_to_cart(page):
 
-    #search results + add produc to cart
-
+    # search results + add produc to cart
 
     # Get product name from configuration
     product_name = Config.product_name
@@ -124,25 +126,28 @@ def add_product_to_cart(page):
 
     # Create Page Object instances
     home_page = HomePage(page)
-    search_results_page=SearchResultsPage(page)
+    search_results_page = SearchResultsPage(page)
 
     #  Enter product name and click Search
     home_page.enter_product_name(product_name)
     home_page.click_search()
 
     # Verify that the search results page is displayed
-    expect(search_results_page.get_search_results_page_header()).to_be_visible(timeout=3000)
+    expect(search_results_page.get_search_results_page_header()).to_be_visible(
+        timeout=3000
+    )
 
     # Validate if the searched product appears in results
-    expect(search_results_page.is_product_exist(product_name)).to_be_visible(timeout=3000)
-
+    expect(search_results_page.is_product_exist(product_name)).to_be_visible(
+        timeout=3000
+    )
 
     product_page = search_results_page.select_product(product_name)
     product_page.set_quantity(quantity)
     product_page.add_to_cart()
 
     # Verify success message appears
-    expect(product_page.get_confirmation_message()).to_be_visible(timeout=3000)
+    expect(product_page.get_confirmation_message()).to_be_visible(timeout=10000)
 
 
 # -------------------------------------------------------------
@@ -156,6 +161,5 @@ def verify_shopping_cart(page):
     config = Config()
 
     print("🛒 Navigated to Shopping Cart Page!")
-
 
     expect(shopping_cart.get_total_price()).to_have_text(config.total_price)

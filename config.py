@@ -5,6 +5,6 @@ class Config:
     invalid_email = "automationtesting88@gmail.com"
     invalid_password = "test@123xyz"
 
-    product_name = "iPhone"
-    product_quantity = "1"
-    total_price = "$123.20"
+    product_name = "HTC Touch HD"
+    product_quantity = "2"
+    total_price = "$244.00"
